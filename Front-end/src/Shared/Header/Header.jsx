@@ -36,7 +36,7 @@ const Header = () => {
           <NavItems />
         </ul>
 
-        <ul className="flex items-center gap-4">
+        <ul className="hidden md:flex items-center gap-4">
           <SearchCart />
         </ul>
 

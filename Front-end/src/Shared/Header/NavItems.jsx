@@ -26,20 +26,6 @@ const NavItems = () => {
       id: "about",
       icons: null,
     },
-    {
-      label: "Login",
-      route: "/login",
-      name: "login",
-      id: "login",
-      icons: null,
-    },
-    {
-      label: "Sign Up",
-      route: "/sign-up",
-      name: "sign-up",
-      id: "sign-up",
-      icons: null,
-    },
   ];
 
   return (
@@ -62,6 +48,21 @@ const NavItems = () => {
             </NavLink>
           </li>
         ))}
+
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            `py-4 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
+              isActive
+                ? "border-primary text-primary hover:text-primary/60"
+                : "border-transparent"
+            }`
+          }
+          to="/sign-up"
+        >
+          <span> Sign Up </span>
+        </NavLink>
+      </li>
       {/* </ul> */}
     </>
   );

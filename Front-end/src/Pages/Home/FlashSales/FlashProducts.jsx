@@ -4,7 +4,7 @@ import ProductCart from "./ProductCart";
 
 const productsData = [
   {
-    id: 1,
+    _id: 1,
     title: "AK-900 Wired Keyboard",
     images: [
       { image: "https://i.ibb.co/3fFfsPX/keyboard.png", color: "black" },
@@ -15,7 +15,7 @@ const productsData = [
     prices: { price: 754, percent: 4 },
   },
   {
-    id: 2,
+    _id: 2,
     title: "IPS LCD Gaming Monitor",
     images: [{ image: "https://i.ibb.co/dPZPJ2h/monitor.png", color: "black" }],
     color: ["silver", "black"],
@@ -24,7 +24,7 @@ const productsData = [
     prices: { price: 856, percent: 7 },
   },
   {
-    id: 3,
+    _id: 3,
     title: "HAVIT HV-G92 Gamepad",
     images: [{ image: "https://i.ibb.co/km4BLC7/remote.png", color: "red" }],
     color: ["white", "gray", "red"],
@@ -33,7 +33,7 @@ const productsData = [
     prices: { price: 45, percent: 6 },
   },
   {
-    id: 4,
+    _id: 4,
     title: "S-Series Comfort Chair",
     images: [{ image: "https://i.ibb.co/QJ2ckXw/chair.png", color: "gray" }],
     color: ["gray", "black"],

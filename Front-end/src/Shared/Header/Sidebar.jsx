@@ -2,6 +2,7 @@ import { useState } from "react";
 import { crossIcons } from "../../Utils/all-icons-svg";
 import Identity from "./Identity";
 import NavItems from "./NavItems";
+import SearchCart from "./SearchCart";
 
 const SideNav = ({ isOpen, toggle }) => {
   const [route, setRoute] = useState(false);
@@ -10,7 +11,7 @@ const SideNav = ({ isOpen, toggle }) => {
     <>
       <aside
         className={`lg:hidden fixed top-0 bg-white min-w-[280px] md:w-[350px] h-screen p-5 z-50 duration-300 ease-in ${
-          isOpen ? "right-0" : "-right-full"
+          isOpen ? "right-0 visible" : "-right-full invisible"
         }`}
       >
         <div className="flex items-center justify-between border-b border-blue/60 pb-2">
@@ -25,6 +26,10 @@ const SideNav = ({ isOpen, toggle }) => {
             {crossIcons}
           </button>
         </div>
+
+        <ul className="flex md:hidden items-center gap-4 mt-5">
+          <SearchCart />
+        </ul>
 
         {/* nav items */}
         <ul className="lg:hidden flex flex-col mt-4">
