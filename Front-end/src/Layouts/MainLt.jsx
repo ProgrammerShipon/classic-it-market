@@ -1,9 +1,12 @@
 import { Outlet } from "react-router-dom";
+import Header from "../Shared/Header/Header";
 
 const MainLt = () => {
   return (
     <>
-      <header>this is a header</header>
+      <header>
+        <Header />
+      </header>
 
       <main>
         <Outlet />
