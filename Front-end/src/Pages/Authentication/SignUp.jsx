@@ -1,7 +1,61 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import ButtonPrimary from "../../Components/ButtonPrimary";
 import Input from "../../Components/Input";
 
-export default function SignUp({ setState }) {
+const serverURL = `http://localhost:3000`;
+
+export default function SignUp({ setState, setLoading }) {
+  const navigate = useNavigate();
+  const [inputData, setInputData] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+
+  const handleInputData = (e) => {
+    setInputData({
+      ...inputData,
+      [e.name]: e.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const userData = {
+      name: inputData?.name,
+      email: inputData?.email,
+      password: inputData?.password,
+    };
+
+    fetch(`${serverURL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        sessionStorage.setItem(
+          "authUser",
+          JSON.stringify({
+            ...result?.data,
+          })
+        );
+        toast.success("Account Create Successful!");
+        navigate("/");
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        toast.error("Something Wrong!");
+        console.log("error ", err);
+      });
+  };
+
   return (
     <>
       <div className="space-y-4">
@@ -11,17 +65,31 @@ export default function SignUp({ setState }) {
         <p className="text-sm font-inter font-normal">
           Enter Your details below
         </p>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <Input placeholder="Full Name " />
+            <Input
+              name="name"
+              placeholder="Full Name "
+              handle={handleInputData}
+            />
           </div>
 
           <div>
-            <Input placeholder="Email or Phon Number" />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Write your Email "
+              handle={handleInputData}
+            />
           </div>
 
           <div>
-            <Input type="password" placeholder="Password" />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Password"
+              handle={handleInputData}
+            />
           </div>
 
           <div className="flex flex-col-reverse md:flex-row gap-3 items-center justify-between">

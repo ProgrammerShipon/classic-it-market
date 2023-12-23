@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="flex justify-between items-center shadow-md shadow-primary/50 px-4 z-20 top-0 min-w-full sticky bg-white">
+      <nav className="flex justify-between items-center shadow-md shadow-primary/20 px-4 z-20 top-0 min-w-full sticky bg-white">
         <div>
           <Identity />
         </div>

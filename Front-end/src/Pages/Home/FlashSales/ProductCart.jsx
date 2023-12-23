@@ -1,19 +1,16 @@
 import RatingStars from "../../../Components/RatingStars";
 import { percentage } from "../../../Utils/Calculators";
-// {
-//     originalPrice: originalPrice,
-//     percentageValue: discountValue,
-//     discountedPrice,
-//     discountAmount: pt,
-//   }
+
 const ProductCart = ({ product }) => {
-  const { originalPrice, percentageValue, discountedPrice, discountAmount } =
-    percentage(product?.prices?.price, product?.prices?.percent);
+  const { discountedPrice } = percentage(
+    product?.prices?.price,
+    product?.prices?.percent
+  );
 
   return (
     <>
       <div className="group transition duration-300 hover:bg-primary/5">
-        <figure className="bg-secondary px-10 py-8 h-60 flex items-center justify-center relative overflow-hidden">
+        <figure className="bg-secondary px-10 py-8 h-48 md:h-52 lg:h-60 flex items-center justify-center relative overflow-hidden">
           {product?.images[0]?.image && (
             <img
               className="w-full h-auto max-h-56"

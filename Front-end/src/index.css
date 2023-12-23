@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .container {
-  @apply mx-auto;
+  @apply mx-auto px-6 md:px-2;
 }

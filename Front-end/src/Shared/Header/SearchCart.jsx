@@ -1,6 +1,10 @@
 import { heartIcon, magnifyGlass, tollyIcon } from "../../Utils/all-icons-svg";
+import useUser from "../../hooks/useUser";
+import NavUser from "./NavUser";
 
 export default function SearchCart() {
+  const { user } = useUser();
+
   return (
     <>
       <li>
@@ -26,6 +30,12 @@ export default function SearchCart() {
       <li>
         <span>{tollyIcon}</span>
       </li>
+
+      {user?.email && (
+        <li>
+          <NavUser />
+        </li>
+      )}
     </>
   );
 }

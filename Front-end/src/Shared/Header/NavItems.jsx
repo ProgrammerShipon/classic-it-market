@@ -1,8 +1,10 @@
 import { NavLink, useLocation } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 
 const NavItems = () => {
   const location = useLocation();
-  // console.log("location ", location);
+  const { user } = useUser();
+  console.log("user ", user);
 
   const navbarData = [
     {
@@ -33,10 +35,10 @@ const NavItems = () => {
       {/* <ul className="flex flex-col md:flex-row justify-end items-center gap-3"> */}
       {navbarData &&
         navbarData.map((item, idx) => (
-          <li key={idx}>
+          <li key={idx} className="">
             <NavLink
               className={({ isActive }) =>
-                `py-4 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
+                `py-8 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
                   isActive == item?.route || location.hash == item?.id
                     ? "border-primary text-primary hover:text-primary/60"
                     : "border-transparent"
@@ -44,25 +46,28 @@ const NavItems = () => {
               }
               to={item?.route}
             >
-              <span> {item.label} </span>
+              <span> {item?.label} </span>
             </NavLink>
           </li>
         ))}
 
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            `py-4 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
-              isActive
-                ? "border-primary text-primary hover:text-primary/60"
-                : "border-transparent"
-            }`
-          }
-          to="/sign-up"
-        >
-          <span> Sign Up </span>
-        </NavLink>
-      </li>
+      {!user?.email && (
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `py-8 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
+                isActive
+                  ? "border-primary text-primary hover:text-primary/60"
+                  : "border-transparent"
+              }`
+            }
+            to="/sign-up"
+          >
+            <span> Sign Up </span>
+          </NavLink>
+        </li>
+      )}
+
       {/* </ul> */}
     </>
   );
