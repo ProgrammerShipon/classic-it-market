@@ -18,10 +18,10 @@ const Authentication = () => {
 
   return (
     <>
-      {loading ? (
-        <AuthLoading />
-      ) : (
-        <div className="py-16">
+      <div className="py-16">
+        {loading ? (
+          <AuthLoading />
+        ) : (
           <div className="md:flex gap-20 h-screen w-full md:max-h-[90vh] justify-between items-center relative">
             <div className="md:flex-grow bg-[#c7e0e5] h-full md:h-[90vh]">
               <figure className="h-full">
@@ -41,8 +41,8 @@ const Authentication = () => {
               )}
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

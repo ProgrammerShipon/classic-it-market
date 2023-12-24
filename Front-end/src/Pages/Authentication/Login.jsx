@@ -3,10 +3,10 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ButtonPrimary from "../../Components/ButtonPrimary";
 import Input from "../../Components/Input";
-
-const serverURL = `http://localhost:3000`;
+import useAxiosSecure from "../../hooks/useAxios";
 
 export default function Login({ setState, setLoading }) {
+  const { axiosSecure } = useAxiosSecure();
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     email: "",
@@ -28,26 +28,20 @@ export default function Login({ setState, setLoading }) {
       password: inputData?.password,
     };
 
-    fetch(`${serverURL}/auth/login`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log("result ", result);
-        sessionStorage.setItem(
+    axiosSecure
+      .post(`/auth/login`, userData)
+      .then(({ data }) => {
+        // console.log("result ", data?.data);
+        localStorage.setItem(
           "authUser",
           JSON.stringify({
-            ...result?.data,
+            ...data?.data,
           })
         );
         toast.success("Account Create Successful!");
         navigate("/");
-        setLoading(false);
         window.location.reload();
+        setLoading(false);
       })
       .catch((err) => {
         setLoading(false);

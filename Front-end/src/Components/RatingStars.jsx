@@ -25,8 +25,8 @@ const RatingStars = ({ rating }) => {
 
   return (
     <div className="flex gap-1 items-center justify-start">
-      {renderStars().map((s) => (
-        <p>{s}</p>
+      {renderStars().map((s, idx) => (
+        <p key={idx}>{s}</p>
       ))}
     </div>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import RatingStars from "../../../Components/RatingStars";
 import { percentage } from "../../../Utils/Calculators";
 
@@ -7,14 +8,16 @@ const ProductCart = ({ product }) => {
     product?.prices?.percent
   );
 
+  console.log("product ", product);
+
   return (
     <>
       <div className="group transition duration-300 hover:bg-primary/5">
         <figure className="bg-secondary px-10 py-8 h-48 md:h-52 lg:h-60 flex items-center justify-center relative overflow-hidden">
-          {product?.images[0]?.image && (
+          {product?.variation?.images[0] && (
             <img
               className="w-full h-auto max-h-56"
-              src={product?.images[0]?.image}
+              src={product?.variation?.images[0]}
               alt={product?.title}
             />
           )}
@@ -26,9 +29,11 @@ const ProductCart = ({ product }) => {
 
         <div className="py-4 space-y-2">
           {product?.title && (
-            <h2 className="text-xl text-black font-medium font-poppins">
-              {product?.title}
-            </h2>
+            <Link to={`/product-details/${product?._id}`}>
+              <h2 className="text-xl text-black font-medium font-poppins">
+                {product?.title}
+              </h2>
+            </Link>
           )}
 
           {product?.prices && (

@@ -4,7 +4,7 @@ export default function useUser() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const authUser = JSON.parse(sessionStorage.getItem("authUser"));
+    const authUser = JSON.parse(localStorage.getItem("authUser"));
     // console.log("authUser ", authUser);
     if (authUser?.email) {
       setUser(authUser);

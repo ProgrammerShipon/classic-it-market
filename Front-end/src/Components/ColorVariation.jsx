@@ -18,12 +18,12 @@ export default function ColorVariation({ colorItems, setBuyData }) {
       {colorItems?.length &&
         colorItems?.map((color, idx) => (
           <label
+            key={idx}
             className={`w-6 h-6 rounded-full border-2  flex items-center justify-center cursor-pointer ${
               radio?.id == `${color}`
                 ? "border-primary shadow-lg"
                 : "border-gray-400"
             }`}
-            key={idx}
             htmlFor={`${color}`}
           >
             <span

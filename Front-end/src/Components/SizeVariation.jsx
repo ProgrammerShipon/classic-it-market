@@ -15,10 +15,10 @@ export default function SizeVariation({ sizeItems, setBuyData }) {
   return (
     <div className="flex items-center justify-start gap-1">
       {sizeItems?.length &&
-        sizeItems?.map((item) => (
+        sizeItems?.map((item, idx) => (
           <span
             onClick={() => setSize(item)}
-            key={item}
+            key={idx}
             className={`p-1 border w-7 h-7 flex items-center justify-center cursor-pointer ${
               size === item && "border-primary text-primary bg-primary/5"
             }`}

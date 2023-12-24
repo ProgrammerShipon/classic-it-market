@@ -7,7 +7,7 @@ export default function NavUser() {
   const location = useLocation();
 
   const handleLogOut = () => {
-    sessionStorage.clear("authUser");
+    localStorage.clear("authUser");
     setUser(null);
     window.location.reload();
   };
