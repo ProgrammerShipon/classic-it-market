@@ -16,10 +16,10 @@ app.use(cors());
 
 // Routes
 const authRoutes = require("./src/routes/authRoutes");
-// const productRoutes = require("./routes/productRoutes");
+const productRoutes = require("./src/routes/ProductsRoute");
 
 app.use("/auth", authRoutes);
-// app.use("/products", productRoutes);
+app.use("/api", productRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).send("Server Running Success");
