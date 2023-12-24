@@ -5,7 +5,7 @@ export default function useUser() {
 
   useEffect(() => {
     const authUser = JSON.parse(sessionStorage.getItem("authUser"));
-    console.log("authUser ", authUser);
+    // console.log("authUser ", authUser);
     if (authUser?.email) {
       setUser(authUser);
     }

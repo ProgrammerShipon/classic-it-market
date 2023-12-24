@@ -25,10 +25,10 @@ export default function SearchCart() {
         </div>
       </li>
       <li>
-        <span>{heartIcon}</span>
+        <span className="w-8 h-8 inline-block">{heartIcon}</span>
       </li>
       <li>
-        <span>{tollyIcon}</span>
+        <span className="w-8 h-8 inline-block">{tollyIcon}</span>
       </li>
 
       {user?.email && (

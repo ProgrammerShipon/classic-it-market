@@ -4,7 +4,7 @@ import useUser from "../../hooks/useUser";
 const NavItems = () => {
   const location = useLocation();
   const { user } = useUser();
-  console.log("user ", user);
+  // console.log("user ", user);
 
   const navbarData = [
     {
