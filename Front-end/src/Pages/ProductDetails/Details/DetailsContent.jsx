@@ -1,12 +1,12 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import ButtonPrimary from "../../../Components/ButtonPrimary";
 import ColorVariation from "../../../Components/ColorVariation";
 import IncreaseDecrease from "../../../Components/IncreaseDecrease";
 import RatingStars from "../../../Components/RatingStars";
 import SizeVariation from "../../../Components/SizeVariation";
 import { heartIcon, returnIcon, trackIcon } from "../../../Utils/all-icons-svg";
 import useUser from "../../../hooks/useUser";
+import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
 // import toast from "react-hot-toast";
 
 const DetailsContent = ({ details }) => {
@@ -39,6 +39,11 @@ const DetailsContent = ({ details }) => {
 
   const handleFavorite = (id) => {
     toast.loading("Coming Soon...");
+  };
+
+  const handleBuy = (id) => {
+    // console.log("buyData ", buyData);
+    toast.loading("Thanks you, But Coming Soon...");
   };
 
   return (
@@ -98,7 +103,7 @@ const DetailsContent = ({ details }) => {
         <div className="flex items-center justify-start">
           <IncreaseDecrease prices={prices} setTotalPrice={setTotalPrice} />
 
-          <ButtonPrimary>
+          <ButtonPrimary onClick={handleBuy}>
             <span> Buy Now </span>
           </ButtonPrimary>
 

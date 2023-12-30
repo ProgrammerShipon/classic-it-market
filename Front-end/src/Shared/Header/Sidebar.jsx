@@ -10,7 +10,7 @@ const SideNav = ({ isOpen, toggle }) => {
   return (
     <>
       <aside
-        className={`lg:hidden fixed top-0 bg-white min-w-[280px] md:w-[350px] h-screen p-5 z-50 duration-300 ease-in ${
+        className={`lg:hidden fixed top-0 bg-white w-full min-w-72 max-w-[350px] h-screen p-5 z-50 duration-300 ease-in ${
           isOpen ? "right-0 visible" : "-right-full invisible"
         }`}
       >
@@ -27,7 +27,7 @@ const SideNav = ({ isOpen, toggle }) => {
           </button>
         </div>
 
-        <ul className="flex md:hidden items-center gap-4 mt-5">
+        <ul className="flex md:hidden flex-col-reverse items-center gap-4 mt-5 w-full">
           <SearchCart />
         </ul>
 

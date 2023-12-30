@@ -1,9 +1,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import ButtonPrimary from "../../Components/ButtonPrimary";
-import Input from "../../Components/Input";
-import useAxiosSecure from "../../hooks/useAxios";
+// import Input from "../../Components/Input";
+import ButtonPrimary from "../../Components/Buttons/ButtonPrimary";
+import Input from "../../Components/Inputs/Input";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const serverURL = `http://localhost:3000`;
 

@@ -19,7 +19,7 @@ export default function SizeVariation({ sizeItems, setBuyData }) {
           <span
             onClick={() => setSize(item)}
             key={idx}
-            className={`p-1 border w-7 h-7 flex items-center justify-center cursor-pointer ${
+            className={`p-1 border min-w-7 max-w-max h-7 flex items-center justify-center cursor-pointer ${
               size === item && "border-primary text-primary bg-primary/5"
             }`}
           >

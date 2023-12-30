@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonPrimary from "../Components/ButtonPrimary";
+import ButtonPrimary from "../Components/Buttons/ButtonPrimary";
 
 const NotFound = () => {
   return (

@@ -1,34 +1,91 @@
-import Input from "../../Components/Input";
-import Identity from "../Header/Identity";
+import PageSection from "../../Components/PageSection";
+import DownloadApp from "./DownloadApp";
+import FooterLink from "./FooterLink";
+import SubscribeOfferFT from "./SubscribeOfferFT";
 
 const Footer = () => {
   return (
     <>
-      <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+      <PageSection className="bg-black">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-secondary">
           <div>
-            <Identity />
+            <SubscribeOfferFT />
+          </div>
 
-            <button>Subscribe</button>
+          {/* support */}
+          <div className="space-y-7">
+            <h3 className="text-xl"> Support </h3>
 
-            <p> Get 10% of your first order </p>
             <div>
-              <Input />
+              <p className="mb-3">
+                Dhalarchar, Aminpur, Pabna, Rajshahi, Bangladesh
+              </p>
+
+              <a className="block my-1"> msshipon234@gmail.com </a>
+              <a className="block my-1"> +880 1765037372 </a>
             </div>
           </div>
 
-          <div className="space-y-5">
-            <h3> Support </h3>
+          {/* account */}
+          <div className="space-y-7">
+            <h3 className="text-xl"> Account </h3>
 
             <div>
-              <p> Dhalarchar, Aminpur, Pabna, Rajshahi, Bangladesh</p>
+              <FooterLink to="#">
+                <span>My Account</span>
+              </FooterLink>
 
-              <a className="block"> msshipon234@gmail.com </a>
-              <a className="block"> +880 1765037372 </a>
+              <FooterLink to="#">
+                <span>Login / Register</span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>Cart</span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>Wishlist</span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>shop</span>
+              </FooterLink>
+            </div>
+          </div>
+
+          {/* quick link */}
+          <div className="space-y-7">
+            <h3 className="text-xl"> Quick Link </h3>
+
+            <div>
+              <FooterLink to="#">
+                <span>Privacy Policy</span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>Terms of use </span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>FAQ</span>
+              </FooterLink>
+
+              <FooterLink to="#">
+                <span>Contact</span>
+              </FooterLink>
+            </div>
+          </div>
+
+          {/* download app */}
+          <div className="space-y-7">
+            <h3 className="text-xl"> Download App </h3>
+
+            <div>
+              <DownloadApp />
             </div>
           </div>
         </div>
-      </div>
+      </PageSection>
     </>
   );
 };

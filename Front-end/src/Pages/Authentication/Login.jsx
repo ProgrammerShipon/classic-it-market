@@ -1,9 +1,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import ButtonPrimary from "../../Components/ButtonPrimary";
-import Input from "../../Components/Input";
-import useAxiosSecure from "../../hooks/useAxios";
+// import Input from "../../Components/Input";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import ButtonPrimary from "../../Components/Buttons/ButtonPrimary";
+import Input from "../../Components/Inputs/Input";
 
 export default function Login({ setState, setLoading }) {
   const { axiosSecure } = useAxiosSecure();

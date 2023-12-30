@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import useAxiosSecure from "./useAxios";
+import { useEffect, useState } from "react";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useAllProducts = () => {
   const { axiosSecure } = useAxiosSecure();
@@ -7,7 +7,6 @@ const useAllProducts = () => {
 
   useEffect(() => {
     axiosSecure.get("/api/products").then(({ data }) => {
-      console.log("result ", data);
       setProduct(data?.data);
     });
   }, []);

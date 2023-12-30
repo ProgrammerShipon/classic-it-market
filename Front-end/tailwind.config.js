@@ -15,6 +15,9 @@ export default {
         inter: ["Inter", "sans-serif"],
         poppins: ["Poppins", "serif"],
       },
+      textColor: {
+        while: "#FAFAFA",
+      },
     },
   },
   plugins: [],

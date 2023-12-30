@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react";
 import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
 import ProductCart from "../../../Components/Cart/ProductCart";
+import useAllProducts from "../../../hooks/useAllProducts";
 // import ProductCart from "./ProductCart";
 
-const FlashProducts = ({ products }) => {
+const RelatedProducts = () => {
+  const { products: p } = useAllProducts();
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    setProducts(p);
+  }, [p]);
+
   // console.log("products ", products);
 
   return (
@@ -16,11 +25,11 @@ const FlashProducts = ({ products }) => {
 
       <div className="mt-12 text-center ">
         <ButtonPrimary>
-          <span>View All Products</span>
+          <span>See All Products</span>
         </ButtonPrimary>
       </div>
     </>
   );
 };
 
-export default FlashProducts;
+export default RelatedProducts;

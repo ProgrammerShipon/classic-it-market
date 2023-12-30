@@ -7,6 +7,7 @@ import Authentication from "../Pages/Authentication/Authentication";
 import Contact from "../Pages/Contact/";
 import Home from "../Pages/Home/";
 import ProductDetails from "../Pages/ProductDetails";
+import Process from "../Pages/Process";
 
 // browser route
 const Routers = createBrowserRouter([
@@ -20,7 +21,7 @@ const Routers = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/sign-up",
+        path: "/authentication",
         element: <Authentication />,
       },
       {
@@ -34,6 +35,10 @@ const Routers = createBrowserRouter([
       {
         path: "/product-details/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "/process",
+        element: <Process />,
       },
     ],
   },

@@ -1,9 +1,14 @@
-import { heartIcon, magnifyGlass, tollyIcon } from "../../Utils/all-icons-svg";
+import { heartIcon, magnifyGlass } from "../../Utils/all-icons-svg";
+import useProductsContext from "../../hooks/useProductsContext";
 import useUser from "../../hooks/useUser";
+import AddToCart from "./AddToCart/AddToCart";
 import NavUser from "./NavUser";
 
 export default function SearchCart() {
+  const { addToCart } = useProductsContext();
   const { user } = useUser();
+
+  // console.log("addToCart ", addToCart);
 
   return (
     <>
@@ -24,18 +29,20 @@ export default function SearchCart() {
           </label>
         </div>
       </li>
-      <li>
-        <span className="w-8 h-8 inline-block">{heartIcon}</span>
-      </li>
-      <li>
-        <span className="w-8 h-8 inline-block">{tollyIcon}</span>
-      </li>
-
-      {user?.email && (
+      <div className="flex items-center gap-4">
         <li>
-          <NavUser />
+          <span className="w-8 h-8 inline-block">{heartIcon}</span>
         </li>
-      )}
+        <li className="relative">
+          <AddToCart />
+        </li>
+
+        {user?.email && (
+          <li>
+            <NavUser />
+          </li>
+        )}
+      </div>
     </>
   );
 }

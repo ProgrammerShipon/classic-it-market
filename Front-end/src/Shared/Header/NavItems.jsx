@@ -38,7 +38,7 @@ const NavItems = () => {
           <li key={idx} className="">
             <NavLink
               className={({ isActive }) =>
-                `py-8 px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
+                `py-3 sm:py-4 md:py-6 lg:py-8 md:px-3 block border-b-2 lg:border-t-4 hover:text-primary hover:border-t-primary md:hover:border-b-primary border-t-transparent transition duration-300 ${
                   isActive == item?.route || location.hash == item?.id
                     ? "border-primary text-primary hover:text-primary/60"
                     : "border-transparent"
@@ -61,7 +61,7 @@ const NavItems = () => {
                   : "border-transparent"
               }`
             }
-            to="/sign-up"
+            to="/authentication"
           >
             <span> Sign Up </span>
           </NavLink>

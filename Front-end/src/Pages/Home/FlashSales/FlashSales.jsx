@@ -1,15 +1,19 @@
 import PageSection from "../../../Components/PageSection";
 import SectionTitle from "../../../Components/SectionTitle";
+import useAllProducts from "../../../hooks/useAllProducts";
 import FlashProducts from "./FlashProducts";
 
 const FlashSales = () => {
+  const { products } = useAllProducts();
   return (
     <>
-      <PageSection>
-        <SectionTitle subTitle="Today's" title="Flash Sales" />
+      {products?.length ? (
+        <PageSection>
+          <SectionTitle subTitle="Today's" title="Flash Sales" />
 
-        <FlashProducts />
-      </PageSection>
+          <FlashProducts products={products} />
+        </PageSection>
+      ) : null}
     </>
   );
 };

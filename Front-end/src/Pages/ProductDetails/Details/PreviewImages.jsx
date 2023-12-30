@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 
-const PreviewImages = ({ images: imgs }) => {
+const PreviewImages = ({ images: imgs, reCall }) => {
   const [images, setImages] = useState([...imgs]);
   const [imageView, setImageView] = useState(images[0]);
+  const [imageUrl, setImageUrl] = useState(images[0]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  console.log("images ", images);
+  // console.log("images ", images);
 
   useEffect(() => {
-    const filtered = imgs?.filter((imgUrl) => imgUrl != imageView);
-    setImages(filtered);
-  }, [imageView]);
+    setIsLoading(true);
+    const filtered = imgs?.filter((imgUrl) => imgUrl != imageUrl);
+    setImages([...filtered]);
+  }, [imageView, reCall, imageUrl]);
+
+  useEffect(() => {
+    setImageView(imageUrl);
+    setIsLoading(false);
+  }, [reCall, imageUrl]);
 
   return (
     <>
@@ -19,7 +27,7 @@ const PreviewImages = ({ images: imgs }) => {
           {images?.length &&
             images?.map((url, idx) => (
               <figure
-                onClick={() => setImageView(url)}
+                onClick={() => setImageUrl(url)}
                 key={idx}
                 className="w-full h-28 flex items-center justify-center bg-secondary rounded-md border-2 border-transparent hover:border-primary/50 hover:shadow-sm hover:bg-primary/5 cursor-pointer transition duration-300 group"
               >

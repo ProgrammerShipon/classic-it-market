@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RatingStars from "../../../Components/RatingStars";
 import { percentage } from "../../../Utils/Calculators";
 
-const ProductCart = ({ product }) => {
+const ProductCart = ({ product, setReCall }) => {
   const { discountedPrice } = percentage(
     product?.prices?.price,
     product?.prices?.percent
   );
+  const navigate = useNavigate();
 
-  console.log("product ", product);
+  // console.log("product ", product);
 
   return (
     <>
@@ -29,7 +30,13 @@ const ProductCart = ({ product }) => {
 
         <div className="py-4 space-y-2">
           {product?.title && (
-            <Link to={`/product-details/${product?._id}`}>
+            <Link
+              to={`/product-details/${product?._id}`}
+              onClick={() => {
+                setReCall((prev) => !prev);
+                reFresh();
+              }}
+            >
               <h2 className="text-xl text-black font-medium font-poppins">
                 {product?.title}
               </h2>

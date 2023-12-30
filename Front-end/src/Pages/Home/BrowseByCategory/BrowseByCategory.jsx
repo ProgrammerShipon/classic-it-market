@@ -1,20 +1,22 @@
 import PageSection from "../../../Components/PageSection";
 import SectionTitle from "../../../Components/SectionTitle";
-
-const category = [
-  {
-    icon: "example",
-    name: "Phone",
-    _id: "",
-  },
-];
+import useBrowseCategory from "../../../hooks/useBrowseCategory";
+import BrowseCategory from "./BrowseCategory";
 
 export default function BrowseByCategory() {
+  const { category } = useBrowseCategory();
+
+  // console.log("category ", category);
+
   return (
     <>
-      <PageSection>
-        <SectionTitle subTitle="Categories" title="Browse By Category" />
-      </PageSection>
+      {category?.length ? (
+        <PageSection>
+          <SectionTitle subTitle="Categories" title="Browse By Category" />
+
+          <BrowseCategory category={category} />
+        </PageSection>
+      ) : null}
     </>
   );
 }

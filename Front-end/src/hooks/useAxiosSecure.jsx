@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect } from "react";
 // import useAuth from './useAuth';
 
-const baseURL = "http://localhost:3000";
-// const baseURL = "https://classicitmarket.vercel.app";
+// const baseURL = "http://localhost:3000";
+const baseURL = "https://classicitmarket.vercel.app";
 
 const axiosSecure = axios.create({ baseURL });
 
